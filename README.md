@@ -33,17 +33,33 @@ Welcome back!  In this project we will be building upon the Active Directory env
 <h3>&#9312; Install Active Directory</h3>
 <p>
 
-- Within Azure, create a resource group
-- Create a virtual network and select the resource group you just created
-<img src="https://i.imgur.com/dUowvkj.png" height="80%" width="80%" alt="Virtual network creation"/>
+- Connect to your DC-1 VM via Remote Desktop
+- Open Server Manager Application
+- Click "Add Roles and Features"
+- Click "Next" until you reach "Server Roles"
+- Select "Active Directory Domain Services" and click "Add Features"
+<img src="https://i.imgur.com/GiPCO9P.png" height="80%" width="80%" alt="AD Domain services"/>
+
+- Click "Next" until you reach "Confirmation"
+- Check box that says "Restart the destination server automatically if required"
+- Click "Install" to complete installation
   
 </p>
 
-<h3>&#9313; Create Domain Controller</h3>
+<h3>&#9313; Promote DC-1 to a Domain Controller</h3>
 
 <p>
 
--
+- Within the Server Manager Dashboard, click on the flag at top right and click "Promote this server to a domain controller"
+<img src="https://i.imgur.com/dXntZsV.png" height="80%" width="80%" alt="domain controller promotion"/>
+
+- Select "Add a new forest" option
+- Set "Root domain name:" to "mydomain.com"
+<img src="https://i.imgur.com/OtjZXv7.png" height="80%" width="80%" alt="domain controller promotion"/>
+
+- Under "DNS options", uncheck "Create DNS delegation"
+- Complete forest installation and your VM should automatically restart once installation is finished
+- Log back into DC-1 VM as a domain user by typing "mydomain.com\(your username)" as your username (Example: mydomain.com\labuser)
 
 </p>
 <br />
