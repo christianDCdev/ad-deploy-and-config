@@ -27,6 +27,8 @@ Welcome back!  In this project we will be building upon the Active Directory env
 - Install Active Directory
 - Create an Active Directory Forest
 - Create a Domain Admin User
+- Join Client-1 to the Domain
+- Set up Remote Desktop for non-administrative users
 
 <h2>Configuration Steps</h2>
 
@@ -89,7 +91,7 @@ Welcome back!  In this project we will be building upon the Active Directory env
 - Navigate to "Member of" tab -> click "Add"
 - Type "Domain Admins" in the empty field
 - Click "Check Names" to confirm you found the correct object name, click "Ok", then click "Apply"
-<img src="https://i.imgur.com/MwxvjCA.png" height="80%" width="80%" alt="add jane to domain admins"/>
+<img src="https://i.imgur.com/MwxvjCA.png" alt="add jane to domain admins"/>
 
 - Close or logout of the DC-1 VM connection
 - Log back into DC-1 VM as "Jane Doe" (mydomain.com\jane_admin)
@@ -108,60 +110,44 @@ Welcome back!  In this project we will be building upon the Active Directory env
 <img src="https://i.imgur.com/VMU4jgm.png" height="80%" width="80%" alt="Rename PC"/>
 
 - Under "Computer Name" tab, click "Change
-- Check "Domain" bubble and type "mydomain.com" in the field
-<img src="https://i.imgur.com/7ouA6h6.png" height="80%" width="80%" alt="Domain change"/>
-  
-</p>
-<br />
+- Check "Domain" bubble, type "mydomain.com" in the field, then click "Ok"
+<img src="https://i.imgur.com/CHRciZK.png" alt="Domain change"/>
 
-<h3>&#9316; Connect to the Domain Controller with Remote Desktop</h3>
+- A "Windows Security" window should pop up
+- Fill in the username and password with "Jane Doe" information (Username: mydomain.com\jane_admin)
+- Click "Ok" and if done correctly, you will see the following window pop up
+<img src="https://i.imgur.com/35CF1Mr.png"  alt="Successfully joined domain"/>
 
-<p>
-
+- Click "Ok" and your VM will restart
+- Within DC-1 VM, open "Active Directory Users and Computers" application
+- Expand "mydomain.com" -> then click on "Computers" to verify if Client-1 is there
 - 
   
 </p>
 <br />
 
-<h3>&#9317; Disable Firewalls in the Domain Controller</h3>
+<h3>&#9316; Setup Remote Desktop for Non-administrative users</h3>
 
 <p>
 
-- 
+- Log into Client-1 VM as "Jane Doe" (mydomain.com\jane_admin)
+- Navigate to "Settings" -> "System" -> "Remote Desktop"
+- Click on "Select users that can remotely access this PC" at the bottom of window
+- Click "Add"
+- Type "Domain Users" in empty field
+- Click "Check Names" to confirm you found the correct object name and click "Ok"
+<img src="https://i.imgur.com/a6nHqwn.png" alt="Successfully joined domain"/>
+
+- Now all normal users within the domain can log into Client-1
   
 </p>
 <br />
-
-<h3>&#9318; Connect Client VM to Domain Controller VM</h3>
-
-<p>
-
-- 
-  
-</p>
-<br />
-
-<h3>&#9319; Connect to Client VM with Remote Desktop</h3>
-
-<p>
-
-- 
-  
-</p>
-<br />
-
-<h3>&#9320; Ensure Connectivity Between Domain Controller and Client</h3>
-
-<p>
-
-- 
-  
-</p>
 
 <h2>Conclusion</h2>
 
 <p>
-If you're reading this, then hopefully you have succesfully completed every step of this project.  This project has built the foundation for the following Active Directory projects.  Now that our Domain Controller and Client are connected and configured, we can dig deeper into more advanced implementations and configurations of Active Directory.
+  
+Congratulations on completing the deployment and configuration of this Active Directory project!  We should now have an active directory forest installed, a domain admin user, and our Client-1 VM should now be inside our domain.  In the next project we will populate our domain with generated users.
 
 - If you would like to continue to the next step in this series of Active Directory projects, please click <a href="https://github.com/christianDCdev/ad-deploy-and-config">here</a>
 
