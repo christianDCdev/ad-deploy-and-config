@@ -25,8 +25,8 @@ Welcome back!  In this project we will be building upon the Active Directory env
 <h2>Objectives</h2>
 
 - Install Active Directory
-- Create a Domain Admin user
-- 
+- Create an Active Directory Forest
+- Create a Domain Admin User
 
 <h2>Configuration Steps</h2>
 
@@ -63,20 +63,53 @@ Welcome back!  In this project we will be building upon the Active Directory env
 
 </p>
 <br />
-<h3>&#9314; Create Client VM</h3>
+
+<h3>&#9314; Create a Domain Admin user within the domain</h3>
 
 <p>
 
--
+- Within DC-1 VM, open Active Directory Users and Computers application
+- Right click "mydomain.com" on the right side of window
+<img src="https://i.imgur.com/h7KNfAb.png" height="80%" width="80%" alt="AD user mydomain"/>
+
+- Click "New" then click "Organizational Unit"
+- Fill in the name as "_EMPLOYEES" and click "Ok"
+- Create another organizational unit
+- Fill in the name as "_ADMINS"
+- Click on the "_ADMINS" folder
+- Within the empty field on the right, right click -> click "New" -> then click "User"
+<img src="https://i.imgur.com/eknzFYE.png" height="80%" width="80%" alt="new user"/>
+
+- Fill out fields for a new user named "Jane Doe" with username "jane_admin"
+<img src="https://i.imgur.com/Ze0cl5V.png" height="80%" width="80%" alt="jane doe info"/>
+
+- Proceed and finish user creation (NOTE: Feel free to uncheck "User must change password at next logon" box for your convenience)
+- Next we will add jane_admin to the built-in "Domain Admins" Security Group
+- Right click on "Jane Doe" and click "Properties"
+- Navigate to "Member of" tab -> click "Add"
+- Type "Domain Admins" in the empty field
+- Click "Check Names" to confirm you found the correct object name, click "Ok", then click "Apply"
+<img src="https://i.imgur.com/MwxvjCA.png" height="80%" width="80%" alt="add jane to domain admins"/>
+
+- Close or logout of the DC-1 VM connection
+- Log back into DC-1 VM as "Jane Doe" (mydomain.com\jane_admin)
+- From now on user "jane_admin" will be used as the admin account
   
 </p>
 <br />
 
-<h3>&#9315; Set Domain Controller's Private IP Address to "Static"</h3>
+<h3>&#9315; Join Client-1 to your Domain</h3>
 
 <p>
 
-- 
+- Login to Client-1 VM as original local admin (in my case username = "labuser")
+- Within the Client-1 VM, right click Windows start button -> then click "System"
+- Click "Rename this PC (advanced)" on the right side of window
+<img src="https://i.imgur.com/VMU4jgm.png" height="80%" width="80%" alt="Rename PC"/>
+
+- Under "Computer Name" tab, click "Change
+- Check "Domain" bubble and type "mydomain.com" in the field
+<img src="https://i.imgur.com/7ouA6h6.png" height="80%" width="80%" alt="Domain change"/>
   
 </p>
 <br />
