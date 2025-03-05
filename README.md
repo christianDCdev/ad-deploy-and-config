@@ -3,7 +3,7 @@
 </p>
 
 <h1>Active Directory Deployment and Configuration</h1>
-Welcome back!  In this project we will be building upon the Active Directory environment created in the previous project.
+Welcome back!  In this project we will continue to build upon the Active Directory environment created in the previous project.  This project will focus on the installation and organization of active directory, domain administration, domain integration, and remote desktop access permissions.
 <br />
 
 <h2>Environments and Technologies Used</h2>
@@ -121,7 +121,6 @@ Welcome back!  In this project we will be building upon the Active Directory env
 - Click "Ok" and your VM will restart
 - Within DC-1 VM, open "Active Directory Users and Computers" application
 - Expand "mydomain.com" -> then click on "Computers" to verify if Client-1 is there
-- 
   
 </p>
 <br />
@@ -149,6 +148,6 @@ Welcome back!  In this project we will be building upon the Active Directory env
   
 Congratulations on completing the deployment and configuration of this Active Directory project!  We should now have an active directory forest installed, a domain admin user, and our Client-1 VM should now be inside our domain.  In the next project we will populate our domain with generated users.
 
-- If you would like to continue to the next step in this series of Active Directory projects, please click <a href="https://github.com/christianDCdev/ad-deploy-and-config">here</a>
+- If you would like to continue to the next step in this series of Active Directory projects, please click <a href="https://github.com/christianDCdev/ad-user-generation">here</a>
 
 </p>
